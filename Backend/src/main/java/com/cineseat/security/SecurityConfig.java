@@ -1,19 +1,17 @@
 package com.cineseat.security;
 
-import com.cineseat.user.User;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
@@ -21,17 +19,24 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 @EnableWebSecurity
 public class SecurityConfig {
 
-  private JwtFilter jwtFilter;
-  private UserDetailsService userDetailsService;
+  private final JwtFilter jwtFilter;
+  private final UserDetailsService userDetailsService;
+  private final OAuth2LoginSuccessHandler oAuth2LoginSuccessHandler;
+  private final PasswordEncoder passwordEncoder;
 
-  public SecurityConfig(JwtFilter jwtFilter, UserDetailsService userDetailsService) {
+  public SecurityConfig(
+      JwtFilter jwtFilter,
+      UserDetailsService userDetailsService,
+      OAuth2LoginSuccessHandler oAuth2LoginSuccessHandler,
+      PasswordEncoder passwordEncoder) {
     this.jwtFilter = jwtFilter;
     this.userDetailsService = userDetailsService;
+    this.oAuth2LoginSuccessHandler = oAuth2LoginSuccessHandler;
+    this.passwordEncoder = passwordEncoder;
   }
 
   @Bean
-  public SecurityFilterChain securityFilterChain(HttpSecurity http, JwtFilter jwtFilter)
-      throws Exception {
+  public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
     return http.csrf(AbstractHttpConfigurer::disable)
         .authorizeHttpRequests(
             request ->
@@ -41,7 +46,7 @@ public class SecurityConfig {
                     .permitAll()
                     .anyRequest()
                     .authenticated())
-        .httpBasic(Customizer.withDefaults())
+        .oauth2Login(oauth -> oauth.successHandler(oAuth2LoginSuccessHandler))
         .sessionManagement(
             session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)
@@ -51,7 +56,7 @@ public class SecurityConfig {
   @Bean
   public AuthenticationProvider authenticationProvider() {
     DaoAuthenticationProvider provider = new DaoAuthenticationProvider();
-    provider.setPasswordEncoder(new BCryptPasswordEncoder(12));
+    provider.setPasswordEncoder(passwordEncoder);
     provider.setUserDetailsService(userDetailsService);
     return provider;
   }

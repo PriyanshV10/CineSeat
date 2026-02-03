@@ -3,21 +3,20 @@ package com.cineseat.auth;
 import com.cineseat.security.JwtService;
 import com.cineseat.user.User;
 import com.cineseat.user.UserRepository;
-import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Service
 public class AuthService {
 
-  private UserRepository userRepository;
-  private JwtService jwtService;
-  private PasswordEncoder passwordEncoder;
+  private final UserRepository userRepository;
+  private final JwtService jwtService;
+  private final PasswordEncoder passwordEncoder;
 
-  public AuthService(UserRepository userRepository, JwtService jwtService) {
+  public AuthService(UserRepository userRepository, JwtService jwtService, PasswordEncoder passwordEncoder) {
     this.userRepository = userRepository;
     this.jwtService = jwtService;
-    this.passwordEncoder = new BCryptPasswordEncoder(12);
+    this.passwordEncoder = passwordEncoder;
   }
 
   public AuthResponse register(RegisterRequest registerRequest) {

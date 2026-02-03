@@ -9,9 +9,18 @@ import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import org.springframework.context.annotation.Configuration;
 
 @Configuration
-@OpenAPIDefinition(info = @Info(title = "CineSeat API", version = "1.0", description = "Movie Booking API Documentation"), security = {
-        @SecurityRequirement(name = "bearerAuth")
-})
-@SecurityScheme(name = "bearerAuth", description = "JWT Authentication", scheme = "bearer", type = SecuritySchemeType.HTTP, bearerFormat = "JWT", in = SecuritySchemeIn.HEADER)
-public class OpenApiConfig {
-}
+@OpenAPIDefinition(
+    info =
+        @Info(
+            title = "CineSeat API",
+            version = "1.0",
+            description = "Movie Booking API Documentation"),
+    security = {@SecurityRequirement(name = "bearerAuth")})
+@SecurityScheme(
+    name = "bearerAuth",
+    description = "JWT Authentication",
+    scheme = "bearer",
+    type = SecuritySchemeType.HTTP,
+    bearerFormat = "JWT",
+    in = SecuritySchemeIn.HEADER)
+public class OpenApiConfig {}
