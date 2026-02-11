@@ -13,7 +13,7 @@ import java.time.LocalDateTime;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = {"movie", "screen"})
+@ToString(exclude = { "movie", "screen" })
 public class Show {
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)

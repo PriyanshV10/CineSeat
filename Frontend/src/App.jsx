@@ -4,16 +4,27 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import OAuthCallback from "./pages/OAuthCallback";
 import { useAuth } from "./context/AuthContext";
-const Home = () => {
+import ThemeToggle from "./components/ThemeToggle";
+import Home from "./pages/Home";
+
+const Home1 = () => {
   const { logout, user } = useAuth();
+  console.log(user);
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-50 text-gray-800">
-      <div className="bg-white p-8 rounded-lg shadow-lg text-center">
-        <h1 className="text-3xl font-bold mb-4">Welcome, {user?.sub}!</h1>
-        <p className="mb-6 text-gray-600">You are successfully logged in.</p>
+    <div className="min-h-screen flex flex-col items-center justify-center bg-slate-50 dark:bg-slate-950 text-slate-900 dark:text-slate-100 transition-colors duration-300">
+      <div className="absolute top-6 right-6 z-10">
+        <ThemeToggle />
+      </div>
+      <div className="relative bg-white/70 dark:bg-slate-900/70 backdrop-blur-xl border border-white/20 dark:border-slate-700/50 p-10 rounded-2xl shadow-2xl text-center transition-all duration-300 hover:shadow-violet-500/10">
+        <h1 className="text-4xl font-extrabold mb-6 bg-gradient-to-r from-violet-600 to-indigo-600 bg-clip-text text-transparent">
+          Welcome, {user?.sub}!
+        </h1>
+        <p className="mb-8 text-lg text-slate-600 dark:text-slate-300">
+          You are successfully logged in.
+        </p>
         <button
           onClick={logout}
-          className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded transition duration-300"
+          className="bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 text-white font-bold py-3 px-8 rounded-xl shadow-lg transform transition hover:scale-105 active:scale-95 duration-200"
         >
           Logout
         </button>
@@ -26,7 +37,7 @@ const ProtectedRoute = ({ children }) => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-gray-100">
+      <div className="min-h-screen flex items-center justify-center bg-gray-900">
         <div className="text-xl font-semibold text-gray-600">Loading...</div>
       </div>
     );

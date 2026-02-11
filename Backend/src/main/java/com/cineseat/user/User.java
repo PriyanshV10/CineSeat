@@ -28,11 +28,20 @@ public class User {
   @Column(nullable = false)
   private Role role;
 
+  private String phoneNumber;
+  private String avatarUrl;
+
   @Enumerated(EnumType.STRING)
   private AuthProvider authProvider;
 
   public enum AuthProvider {
     LOCAL,
     GOOGLE
+  }
+
+  public enum Role {
+    USER,
+    THEATER,
+    ADMIN
   }
 }

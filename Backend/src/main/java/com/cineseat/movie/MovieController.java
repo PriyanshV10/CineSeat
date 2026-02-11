@@ -5,7 +5,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/movies")
+@RequestMapping("/api/v1/movies")
 public class MovieController {
 
   private final MovieService movieService;
@@ -17,11 +17,6 @@ public class MovieController {
   @GetMapping
   public List<Movie> getMovies() {
     return movieService.getAllMovies();
-  }
-
-  @PostMapping
-  public Movie addMovie(@RequestBody Movie movie) {
-    return movieService.addMovie(movie);
   }
 
   @GetMapping("/{id}")

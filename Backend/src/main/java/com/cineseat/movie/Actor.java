@@ -1,6 +1,5 @@
-package com.cineseat.screen;
+package com.cineseat.movie;
 
-import com.cineseat.theater.Theater;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -9,16 +8,12 @@ import lombok.*;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = "theater")
-public class Screen {
+@ToString
+public class Actor {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
   @Column(nullable = false)
   private String name;
-
-  @ManyToOne
-  @JoinColumn(name = "theater_id", nullable = false)
-  private Theater theater;
 }

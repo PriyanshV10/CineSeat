@@ -6,11 +6,12 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
+@Table(name = "theater")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = {"owner", "city"})
+@ToString(exclude = { "owner", "city" })
 public class Theater {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)

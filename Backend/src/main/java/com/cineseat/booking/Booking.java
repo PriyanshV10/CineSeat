@@ -6,6 +6,7 @@ import com.cineseat.user.User;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -15,7 +16,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString(exclude = {"user", "show", "showSeats"})
 public class Booking {
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,4 +42,14 @@ public class Booking {
 
   @Column(nullable = false)
   private LocalDateTime bookingTime;
+
+  private LocalDateTime expirationTime;
+  private BigDecimal totalPrice;
+
+  public enum BookingStatus {
+    PENDING,
+    CONFIRMED,
+    CANCELLED,
+    EXPIRED
+  }
 }

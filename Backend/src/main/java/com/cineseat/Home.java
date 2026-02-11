@@ -9,9 +9,9 @@ import java.io.IOException;
 @RestController
 public class Home {
 
-  @GetMapping("/api")
+  @GetMapping("/api/v1")
   public String index() {
-    return "CineSeat API!";
+    return "CineSeat API version 1.0!";
   }
 
   @GetMapping("/")

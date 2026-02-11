@@ -15,12 +15,20 @@ public class Seat {
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
 
-  private String seatNumber;
+  @Column(nullable = false)
+  private String seatNumber; // e.g., "A1", "B5"
 
   @Enumerated(EnumType.STRING)
+  @Column(nullable = false)
   private SeatType seatType;
 
   @ManyToOne
   @JoinColumn(name = "screen_id", nullable = false)
   private Screen screen;
+
+  public enum SeatType {
+    REGULAR,
+    PREMIUM,
+    RECLINER
+  }
 }

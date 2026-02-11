@@ -31,4 +31,11 @@ public class ShowSeat {
   private SeatStatus status;
 
   private LocalDateTime lockedUntil;
+
+  public enum SeatStatus {
+    AVAILABLE,
+    BOOKED,
+    LOCKED,
+    BLOCKED
+  }
 }

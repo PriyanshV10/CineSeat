@@ -1,6 +1,5 @@
 package com.cineseat.security;
 
-import com.cineseat.user.Role;
 import com.cineseat.user.User;
 import com.cineseat.user.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
@@ -38,6 +37,7 @@ public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
     OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
     String email = oAuth2User.getAttribute("email");
     String name = oAuth2User.getAttribute("name");
+    String avatarUrl = oAuth2User.getAttribute("picture");
 
     User user = userRepository.findByEmail(email);
 
@@ -45,9 +45,10 @@ public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
       user = new User();
       user.setEmail(email);
       user.setName(name);
-      user.setRole(Role.USER);
+      user.setRole(User.Role.USER);
       user.setAuthProvider(User.AuthProvider.GOOGLE);
       user.setPassword(passwordEncoder.encode("OAUTH_DUMMY"));
+      user.setAvatarUrl(avatarUrl);
       userRepository.save(user);
     }
 
