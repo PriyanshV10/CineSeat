@@ -1,5 +1,6 @@
 package com.cineseat.movie;
 
+import jakarta.validation.Valid;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -17,7 +18,7 @@ public class AdminMovieController {
   }
 
   @PostMapping
-  public Movie addMovie(@RequestBody Movie movie) {
-    return movieService.addMovie(movie);
+  public Movie addMovie(@Valid @RequestBody CreateMovieRequest request) {
+    return movieService.addMovie(request);
   }
 }

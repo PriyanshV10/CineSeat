@@ -1,3 +1,103 @@
 @import "tailwindcss";
+@config "../tailwind.config.js";
 
-@custom-variant dark (&:where(.dark, .dark *));
+
+
+@layer base {
+  :root {
+    /* Light Mode Variables - Clean & Sharp */
+    --background: #ffffff;
+    --foreground: #09090b; /* zinc-950 */
+    --muted: #f4f4f5; /* zinc-100 */
+    --muted-foreground: #71717a; /* zinc-500 */
+    --accent: #f4f4f5; /* zinc-100 */
+    --accent-foreground: #18181b; /* zinc-900 */
+    --border: #e4e4e7; /* zinc-200 */
+  }
+
+  .dark {
+    /* Dark Mode Variables - Deep & Cinematic */
+    --background: #000000; /* Pure Black */
+    --foreground: #fafafa; /* zinc-50 */
+    --muted: #18181b; /* zinc-900 */
+    --muted-foreground: #a1a1aa; /* zinc-400 */
+    --accent: #27272a; /* zinc-800 */
+    --accent-foreground: #fafafa; /* zinc-50 */
+    --border: #27272a; /* zinc-800 */
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased selection:bg-primary selection:text-white transition-colors duration-300;
+  }
+}
+
+@layer components {
+  /* Minimal glass utility */
+  .glass {
+    @apply backdrop-blur-md border border-gray-200 dark:border-white/10 shadow-lg transition-all duration-300;
+    background: rgba(255, 255, 255, 0.7);
+  }
+  
+  .dark .glass {
+    background: rgba(0, 0, 0, 0.4);
+    @apply border-white/5;
+  }
+
+  /* Interactive glass card */
+  .glass-card {
+    /* Explicitly including glass styles here to avoid @apply error */
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid theme('colors.gray.200'); /* border-gray-200 */
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1); /* shadow-lg */
+    transition-property: all;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 300ms;
+    background: rgba(255, 255, 255, 0.7);
+
+    @apply hover:bg-white/80 dark:hover:bg-white/10 hover:border-primary/30 rounded-xl p-4;
+  }
+  
+  .dark .glass-card {
+     border-color: rgba(255, 255, 255, 0.1); /* dark:border-white/10 */
+     background: rgba(0, 0, 0, 0.4);
+  }
+
+  /* High contrast neon text for dark mode */
+  .text-glow {
+    text-shadow: 0 0 15px rgba(124, 58, 237, 0.6);
+  }
+  
+  /* Cinematic Button */
+  .btn-primary {
+    @apply bg-violet-600 text-white px-6 py-2 rounded-lg font-medium 
+           hover:shadow-lg dark:hover:shadow-glow hover:bg-violet-700 transition-all duration-300
+           active:scale-95;
+  }
+  
+  .btn-outline {
+    @apply border border-white/20 hover:bg-white/10 hover:border-white/40 
+           transition-all duration-300 px-6 py-2 rounded-lg font-medium;
+  }
+  
+  .dark .btn-outline {
+    @apply border-white/10 hover:bg-white/5;
+  }
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-zinc-300 dark:bg-zinc-800 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-zinc-400 dark:bg-zinc-700;
+}

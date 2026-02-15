@@ -10,10 +10,10 @@ import lombok.*;
 @AllArgsConstructor
 @ToString
 public class Genre {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+  @Id
+  @GeneratedValue(strategy = GenerationType.IDENTITY)
+  private Long id;
 
-    @Column(nullable = false, unique = true)
-    private String name; // e.g., "Action", "Comedy", "Thriller"
+  @Column(nullable = false, unique = true)
+  private String name;
 }

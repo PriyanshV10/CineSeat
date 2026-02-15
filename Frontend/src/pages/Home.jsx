@@ -1,44 +1,74 @@
-import React, { useEffect, useState } from "react";
-import { useAuth } from "../context/AuthContext";
-import api from "../services/api";
-
-import defaultAvatar from "../assets/user-avatar.png";
+import React, { useState, useEffect } from "react";
+import { getMovies } from "../services/api.js";
+import MovieSection from "../components/common/MovieSection";
+import Hero from "../components/common/Hero";
 
 const Home = () => {
-  const { logout } = useAuth();
-  const [user, setUser] = useState(null);
-
-  const fetchUser = async () => {
-    try {
-      const response = await api.get("/users/me");
-      const fetchedUser = response.data;
-      setUser(fetchedUser);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+  const [recommendedMovies, setRecommendedMovies] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetchUser();
+    const fetchHomeData = async () => {
+      try {
+        setLoading(true);
+        // Fetch Recommended (Now Showing)
+        let recommendedData = await getMovies({ status: "NOW_SHOWING" }, 0, 10);
+        if (!recommendedData.content || recommendedData.content.length === 0) {
+          // MOCK DATA for Demo
+          recommendedData = {
+            content: Array(10)
+              .fill(0)
+              .map((_, i) => ({
+                id: i + 100,
+                title: `Recommended Movie ${i + 1}`,
+                posterUrl: `https://placehold.co/300x450?text=Movie+${i + 1}`,
+                language: "Hindi",
+                duration: 120,
+                rating: 4.5,
+                genres: [{ id: 1, name: "Action" }],
+              })),
+          };
+        }
+        setRecommendedMovies(recommendedData.content || []);
+      } catch (err) {
+        console.error("Failed to fetch home data:", err);
+        // Fallback to Mock Data on Error
+        setRecommendedMovies(
+          Array(10)
+            .fill(0)
+            .map((_, i) => ({
+              id: i + 100,
+              title: `Recommended Movie ${i + 1}`,
+              posterUrl: `https://placehold.co/300x450?text=Movie+${i + 1}`,
+              language: "Hindi",
+              duration: 120,
+              rating: 4.5,
+              genres: [{ id: 1, name: "Action" }],
+            })),
+        );
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchHomeData();
   }, []);
 
   return (
-    <div className="bg-black min-h-screen">
-      <div className="flex justify-between">
-        <img
-          src={user?.avatarUrl || defaultAvatar}
-          alt="User Avatar"
-          className="w-10 h-10 rounded-full"
-        />
+    <div className="min-h-screen bg-white dark:bg-[#121212] transition-colors duration-300 pb-20">
+      {/* Hero Section */}
+      <Hero />
 
-        <button
-          className="bg-red-500 text-white px-4 py-2 rounded"
-          onClick={logout}
-        >
-          Logout
-        </button>
+      <div className="container mx-auto px-4">
+        {/* Recommended Movies */}
+        <MovieSection
+          title="Recommended Movies"
+          movies={recommendedMovies}
+          link="/movies?status=NOW_SHOWING"
+        />
       </div>
     </div>
   );
 };
+
 export default Home;

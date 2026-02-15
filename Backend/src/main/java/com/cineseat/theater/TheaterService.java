@@ -3,6 +3,7 @@ package com.cineseat.theater;
 import com.cineseat.city.City;
 import com.cineseat.city.CityRepository;
 import com.cineseat.exception.ResourceNotFoundException;
+import com.cineseat.user.UserService;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,10 +13,13 @@ public class TheaterService {
 
   private final TheaterRepository theaterRepository;
   private final CityRepository cityRepository;
+  private final UserService userService;
 
-  public TheaterService(TheaterRepository theaterRepository, CityRepository cityRepository) {
+  public TheaterService(
+      TheaterRepository theaterRepository, CityRepository cityRepository, UserService userService) {
     this.theaterRepository = theaterRepository;
     this.cityRepository = cityRepository;
+    this.userService = userService;
   }
 
   public List<Theater> getAllTheaters() {
@@ -46,7 +50,7 @@ public class TheaterService {
     theater.setName(request.getName());
     theater.setAddress(request.getAddress());
     theater.setCity(city);
-    // TODO: add user too, in theater object
+    theater.setOwner(userService.getCurrentUser());
 
     return theaterRepository.save(theater);
   }

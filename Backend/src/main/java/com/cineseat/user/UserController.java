@@ -40,7 +40,7 @@ public class UserController {
     return ResponseEntity.ok(getUserDTO(user));
   }
 
-  @PutMapping()
+  @PatchMapping()
   public ResponseEntity<GetUserDTO> updateUser(@Valid @RequestBody UpdateUserRequest request) {
     User user = userService.updateCurrentUser(request);
     return ResponseEntity.ok(getUserDTO(user));

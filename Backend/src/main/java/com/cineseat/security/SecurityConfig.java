@@ -56,6 +56,7 @@ public class SecurityConfig {
                 .hasRole("ADMIN")
                 .requestMatchers(
                     "/",
+                    "/api/v1/movies/**",
                     "/api/v1/auth/**",
                     "/v3/api-docs/**",
                     "/swagger-ui/**",

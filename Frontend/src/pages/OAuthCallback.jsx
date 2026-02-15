@@ -15,8 +15,8 @@ const OAuthCallback = () => {
     }
   }, [searchParams, navigate, login]);
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gray-100">
-      <div className="text-xl font-semibold text-gray-700">
+    <div className="min-h-screen flex items-center justify-center bg-white dark:bg-zinc-950 transition-colors duration-300">
+      <div className="text-xl font-medium text-zinc-900 dark:text-white animate-pulse">
         Processing Login...
       </div>
     </div>
