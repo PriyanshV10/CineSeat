@@ -51,7 +51,7 @@ const MovieDetails = () => {
   if (loading) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-white dark:bg-[#121212]">
-        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-red-500"></div>
+        <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
       </div>
     );
   }
@@ -91,7 +91,7 @@ const MovieDetails = () => {
 
               <div className="flex items-center gap-4">
                 <div className="flex items-center gap-1 font-bold text-lg">
-                  <span className="text-red-500">♥</span>
+                  <span className="text-blue-500">♥</span>
                   <span>{movie.rating ? `${movie.rating * 10}%` : "85%"}</span>
                 </div>
                 <span className="text-gray-400 text-sm">ratings</span>
@@ -113,7 +113,7 @@ const MovieDetails = () => {
 
               <Link
                 to={`/buy/movies/${movie.id}`}
-                className="bg-red-500 hover:bg-red-600 text-white font-bold py-3 px-8 rounded w-fit mt-4 transition-colors"
+                className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-3 px-8 rounded w-fit mt-4 transition-colors"
               >
                 Book Tickets
               </Link>

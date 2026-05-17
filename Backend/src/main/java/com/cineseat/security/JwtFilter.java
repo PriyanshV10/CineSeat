@@ -35,7 +35,13 @@ public class JwtFilter extends OncePerRequestFilter {
 
     if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
       token = authorizationHeader.substring(7);
-      email = jwtService.extractEmail(token);
+      try {
+        email = jwtService.extractEmail(token);
+      } catch (io.jsonwebtoken.ExpiredJwtException e) {
+        // Ignore expired tokens to allow Spring Security to throw 401 Unauthorized naturally
+      } catch (io.jsonwebtoken.JwtException e) {
+        // Ignore other JWT errors
+      }
     }
 
     if (email != null && SecurityContextHolder.getContext().getAuthentication() == null) {

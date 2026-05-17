@@ -67,7 +67,7 @@ const Footer = () => {
              <p className="text-sm text-gray-400 mb-4">
                 Get the best experience on the CineSeat App.
              </p>
-             <button className="bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-6 rounded transition-colors w-full sm:w-auto">
+             <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded transition-colors w-full sm:w-auto">
                 Download App
              </button>
           </div>

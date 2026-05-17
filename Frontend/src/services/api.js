@@ -2,15 +2,56 @@ import axios from "axios";
 
 const api = axios.create({
   baseURL: `${import.meta.env.VITE_API_URL || "http://localhost:8080"}/api/v1`,
+  withCredentials: true,
 });
 
 api.interceptors.request.use((config) => {
   const token = localStorage.getItem("token");
-  if (token) {
+  // Don't send the Authorization header for auth endpoints (login, register, refresh)
+  // because an expired token will cause the backend JwtFilter to crash!
+  if (token && !config.url.includes("/auth/")) {
     config.headers.Authorization = `Bearer ${token}`;
   }
   return config;
 });
+
+api.interceptors.response.use(
+  (response) => response,
+  async (error) => {
+    const originalRequest = error.config;
+
+    // If the error is 401 and it's not a retry and not the refresh endpoint itself
+    if (
+      error.response?.status === 401 &&
+      !originalRequest._retry &&
+      !originalRequest.url.includes("/auth/refresh-token") &&
+      !originalRequest.url.includes("/auth/login")
+    ) {
+      originalRequest._retry = true;
+
+      try {
+        const res = await api.post("/auth/refresh-token");
+        if (res.status === 200) {
+          const newToken = res.data.accessToken;
+          localStorage.setItem("token", newToken);
+          
+          // Update the original request with new token
+          originalRequest.headers.Authorization = `Bearer ${newToken}`;
+          
+          // Retry the original request
+          return api(originalRequest);
+        }
+      } catch (refreshError) {
+        // If refresh fails, clear token and redirect to login
+        localStorage.removeItem("token");
+        window.location.href = "/login";
+        return Promise.reject(refreshError);
+      }
+    }
+
+    return Promise.reject(error);
+  }
+);
 
 export const getMovies = async (filters = {}, page = 0, size = 10) => {
   // Filter out empty values

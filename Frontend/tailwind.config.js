@@ -14,9 +14,9 @@ export default {
         
         // Brand & Accents
         primary: {
-          DEFAULT: "#7c3aed", // violet-600
+          DEFAULT: "#2563eb", // blue-600
           foreground: "#ffffff",
-          glow: "rgba(124, 58, 237, 0.5)", // violet glow
+          glow: "rgba(37, 99, 235, 0.5)", // blue glow
         },
         secondary: {
           DEFAULT: "#f59e0b", // amber-500
@@ -47,8 +47,8 @@ export default {
         'glass-gradient': 'linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.03) 100%)',
       },
       boxShadow: {
-        'glow': '0 0 20px rgba(124, 58, 237, 0.5)',
-        'glow-sm': '0 0 10px rgba(124, 58, 237, 0.3)',
+        'glow': '0 0 20px rgba(37, 99, 235, 0.5)',
+        'glow-sm': '0 0 10px rgba(37, 99, 235, 0.3)',
       },
       fontFamily: {
         sans: ['Inter', 'sans-serif'],

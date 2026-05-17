@@ -115,7 +115,7 @@ const TheaterListing = () => {
                 onClick={() => setSelectedDate(date)}
                 className={`flex flex-col items-center min-w-[50px] px-2 py-2 rounded transition-colors ${
                   selectedDate.toDateString() === date.toDateString()
-                    ? "bg-red-500 text-white"
+                    ? "bg-blue-500 text-white"
                     : "hover:bg-gray-100 dark:hover:bg-gray-800 text-gray-600 dark:text-gray-400"
                 }`}
               >

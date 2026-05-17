@@ -14,7 +14,7 @@ const MovieSection = ({ title, movies, link }) => {
         {link && (
           <Link
             to={link}
-            className="text-red-500 text-sm font-medium hover:underline"
+            className="text-blue-500 text-sm font-medium hover:underline"
           >
             See All ›
           </Link>

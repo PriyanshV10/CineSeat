@@ -58,7 +58,7 @@ const Navbar = () => {
         {/* Left: Logo & Search */}
         <div className="flex items-center gap-6 flex-1">
           <Link to="/" className="flex flex-col select-none">
-            <span className="text-2xl font-black tracking-tighter text-red-600 leading-none">
+            <span className="text-2xl font-black tracking-tighter text-blue-600 leading-none">
               cine<span className="text-black dark:text-white">seat</span>
             </span>
           </Link>
@@ -87,7 +87,7 @@ const Navbar = () => {
               <input
                 type="text"
                 placeholder="Search for Movies, Events, Plays, Sports and Activities"
-                className="w-full py-2 pl-10 pr-4 bg-white border border-gray-300 rounded-md text-sm focus:outline-none focus:border-red-500 dark:bg-[#2C2C2C] dark:border-gray-600 dark:text-white transition-colors"
+                className="w-full py-2 pl-10 pr-4 bg-white border border-gray-300 rounded-md text-sm focus:outline-none focus:border-blue-500 dark:bg-[#2C2C2C] dark:border-gray-600 dark:text-white transition-colors"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
               />
@@ -100,7 +100,7 @@ const Navbar = () => {
           <div className="hidden md:flex ml-4">
             <Link
               to="/admin/dashboard"
-              className="px-4 py-2 rounded-lg bg-red-600 text-white text-sm font-bold shadow-md hover:bg-red-700 transition-all"
+              className="px-4 py-2 rounded-lg bg-blue-600 text-white text-sm font-bold shadow-md hover:bg-blue-700 transition-all"
             >
               Theater Dashboard
             </Link>
@@ -113,7 +113,7 @@ const Navbar = () => {
           <div className="relative" ref={cityRef}>
             <button
               onClick={() => setCityDropdownOpen(!cityDropdownOpen)}
-              className="flex items-center gap-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-red-500 transition-colors"
+              className="flex items-center gap-1 text-sm font-medium text-gray-700 dark:text-gray-300 hover:text-blue-500 transition-colors"
             >
               {selectedCity ? selectedCity.name : "Select City"}
               <svg
@@ -163,7 +163,7 @@ const Navbar = () => {
                       className="w-8 h-8 rounded-full"
                     />
                   ) : (
-                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-red-500 to-pink-500 flex items-center justify-center text-white font-bold text-xs">
+                    <div className="w-8 h-8 rounded-full bg-gradient-to-r from-blue-500 to-pink-500 flex items-center justify-center text-white font-bold text-xs">
                       {user.name?.charAt(0).toUpperCase()}
                     </div>
                   )}
@@ -196,7 +196,7 @@ const Navbar = () => {
                     {isTheater && (
                       <Link
                         to="/admin/dashboard"
-                        className="block px-4 py-2 text-sm text-red-600 font-bold border-t border-gray-100 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700"
+                        className="block px-4 py-2 text-sm text-blue-600 font-bold border-t border-gray-100 dark:border-gray-700 hover:bg-gray-100 dark:hover:bg-gray-700"
                         onClick={() => setProfileDropdownOpen(false)}
                       >
                         Theater Dashboard
@@ -208,7 +208,7 @@ const Navbar = () => {
             ) : (
               <Link
                 to="/login"
-                className="px-5 py-1.5 bg-red-500 text-white text-xs font-bold rounded hover:bg-red-600 transition-colors"
+                className="px-5 py-1.5 bg-blue-500 text-white text-xs font-bold rounded hover:bg-blue-600 transition-colors"
               >
                 Sign In
               </Link>

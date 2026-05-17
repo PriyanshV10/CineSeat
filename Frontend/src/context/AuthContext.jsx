@@ -1,6 +1,5 @@
 import React, { createContext, useState, useEffect, useContext } from "react";
-import { jwtDecode } from "jwt-decode";
-import { getUserProfile } from "../services/api";
+import api, { getUserProfile } from "../services/api";
 
 const AuthContext = createContext(null);
 
@@ -11,18 +10,10 @@ export const AuthProvider = ({ children }) => {
 
   useEffect(() => {
     if (token) {
-      try {
-        const decoded = jwtDecode(token);
-        if (decoded.exp * 1000 < Date.now()) {
-          logout();
-        } else {
-          fetchUserProfile();
-        }
-      } catch (error) {
-        logout();
-      }
+      fetchUserProfile();
+    } else {
+      setLoading(false);
     }
-    setLoading(false);
   }, [token]);
   
   const fetchUserProfile = async () => {
@@ -30,7 +21,9 @@ export const AuthProvider = ({ children }) => {
       const response = await getUserProfile();
       setUser(response);
     } catch (error) {
-      logout();
+      clearLocalAuth();
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -39,10 +32,21 @@ export const AuthProvider = ({ children }) => {
     setToken(newToken);
   };
 
-  const logout = () => {
+  const clearLocalAuth = () => {
     localStorage.removeItem("token");
     setUser(null);
     setToken(null);
+  };
+
+  const logout = async () => {
+    if (user?.id) {
+      try {
+        await api.post("/auth/logout");
+      } catch (error) {
+        console.error("Logout API failed", error);
+      }
+    }
+    clearLocalAuth();
   };
 
   const isAdmin = user?.role?.includes("ADMIN");

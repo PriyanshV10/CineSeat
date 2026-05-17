@@ -51,21 +51,28 @@ public class SecurityConfig {
     return http.csrf(AbstractHttpConfigurer::disable)
         .cors(Customizer.withDefaults())
         .authorizeHttpRequests(
-            request -> request
-                .requestMatchers("/api/v1/admin/**")
-                .hasRole("ADMIN")
-                .requestMatchers(
-                    "/",
-                    "/api/v1/movies/**",
-                    "/api/v1/auth/**",
-                    "/v3/api-docs/**",
-                    "/swagger-ui/**",
-                    "/swagger-ui.html",
-                    "/uploads/**")
-                .permitAll()
-                .anyRequest()
-                .authenticated())
+            request ->
+                request
+                    .requestMatchers("/api/v1/admin/**")
+                    .hasRole("ADMIN")
+                    .requestMatchers(
+                        "/",
+                        "/error",
+                        "/api/v1/movies/**",
+                        "/api/v1/auth/**",
+                        "/v3/api-docs/**",
+                        "/swagger-ui/**",
+                        "/swagger-ui.html",
+                        "/uploads/**")
+                    .permitAll()
+                    .anyRequest()
+                    .authenticated())
         .oauth2Login(oauth -> oauth.successHandler(oAuth2LoginSuccessHandler))
+        .exceptionHandling(
+            e ->
+                e.authenticationEntryPoint(
+                    new org.springframework.security.web.authentication.HttpStatusEntryPoint(
+                        org.springframework.http.HttpStatus.UNAUTHORIZED)))
         .sessionManagement(
             session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
         .addFilterBefore(jwtFilter, UsernamePasswordAuthenticationFilter.class)

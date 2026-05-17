@@ -65,13 +65,13 @@
 
   /* High contrast neon text for dark mode */
   .text-glow {
-    text-shadow: 0 0 15px rgba(124, 58, 237, 0.6);
+    text-shadow: 0 0 15px rgba(37, 99, 235, 0.6);
   }
   
   /* Cinematic Button */
   .btn-primary {
-    @apply bg-violet-600 text-white px-6 py-2 rounded-lg font-medium 
-           hover:shadow-lg dark:hover:shadow-glow hover:bg-violet-700 transition-all duration-300
+    @apply bg-blue-600 text-white px-6 py-2 rounded-lg font-medium 
+           hover:shadow-lg dark:hover:shadow-glow hover:bg-blue-700 transition-all duration-300
            active:scale-95;
   }
   

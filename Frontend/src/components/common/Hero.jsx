@@ -19,7 +19,7 @@ const Hero = () => {
       {/* Content */}
       <div className="relative h-full container mx-auto px-4 flex flex-col justify-center pb-16 z-10">
         <div className="max-w-3xl animate-fade-in-up">
-          <span className="px-3 py-1 bg-red-600 text-white text-xs font-bold rounded-sm uppercase tracking-wide mb-4 inline-block">
+          <span className="px-3 py-1 bg-blue-600 text-white text-xs font-bold rounded-sm uppercase tracking-wide mb-4 inline-block">
             Cinematic Experience
           </span>
           <h1 className="text-5xl md:text-7xl font-black text-white mb-6 tracking-tight drop-shadow-lg leading-tight">
@@ -33,7 +33,7 @@ const Hero = () => {
           <div className="flex gap-4">
             <Link
               to="/movies"
-              className="px-8 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-red-600/30"
+              className="px-8 py-3 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-blue-600/30"
             >
               Browse Movies
             </Link>

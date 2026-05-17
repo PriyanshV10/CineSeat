@@ -6,6 +6,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.Authentication;
+import org.springframework.security.oauth2.client.authentication.OAuth2AuthenticationToken;
 import org.springframework.security.oauth2.core.user.OAuth2User;
 import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 import org.springframework.stereotype.Component;
@@ -34,6 +35,9 @@ public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
   public void onAuthenticationSuccess(
       HttpServletRequest request, HttpServletResponse response, Authentication authentication)
       throws IOException {
+    OAuth2AuthenticationToken oauthToken = (OAuth2AuthenticationToken) authentication;
+    String provider = oauthToken.getAuthorizedClientRegistrationId().toUpperCase();
+
     OAuth2User oAuth2User = (OAuth2User) authentication.getPrincipal();
     String email = oAuth2User.getAttribute("email");
     String name = oAuth2User.getAttribute("name");
@@ -46,8 +50,12 @@ public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
       user.setEmail(email);
       user.setName(name);
       user.setRole(User.Role.USER);
-      user.setAuthProvider(User.AuthProvider.GOOGLE);
-      user.setPassword(passwordEncoder.encode("OAUTH_DUMMY"));
+      user.setAuthProvider(User.AuthProvider.valueOf(provider));
+      user.setPassword(null);
+      user.setAvatarUrl(avatarUrl);
+      userRepository.save(user);
+    }
+    else if(user.getAvatarUrl() == null) {
       user.setAvatarUrl(avatarUrl);
       userRepository.save(user);
     }
