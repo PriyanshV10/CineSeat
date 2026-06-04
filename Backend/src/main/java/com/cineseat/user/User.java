@@ -3,6 +3,9 @@ package com.cineseat.user;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.HashSet;
+import java.util.Set;
+
 @Entity
 @Table(name = "users")
 @Getter
@@ -31,8 +34,11 @@ public class User {
   private String phoneNumber;
   private String avatarUrl;
 
+  @ElementCollection(fetch = FetchType.EAGER)
+  @CollectionTable(name = "user_auth_providers", joinColumns = @JoinColumn(name = "user_id"))
   @Enumerated(EnumType.STRING)
-  private AuthProvider authProvider;
+  @Column(name = "provider")
+  private Set<AuthProvider> authProvider = new HashSet<>();
 
   public enum AuthProvider {
     LOCAL,

@@ -14,7 +14,7 @@ public class GetUserDTO {
     private String email;
     private String name;
     private User.Role role;
-    private User.AuthProvider authProvider;
+    private Set<User.AuthProvider> authProvider;
     private String phoneNumber;
     private String avatarUrl;
 }

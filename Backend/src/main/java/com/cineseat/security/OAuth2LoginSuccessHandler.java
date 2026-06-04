@@ -50,7 +50,7 @@ public class OAuth2LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHan
       user.setEmail(email);
       user.setName(name);
       user.setRole(User.Role.USER);
-      user.setAuthProvider(User.AuthProvider.valueOf(provider));
+      user.getAuthProvider().add(User.AuthProvider.valueOf(provider));
       user.setPassword(null);
       user.setAvatarUrl(avatarUrl);
       userRepository.save(user);

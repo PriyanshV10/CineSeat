@@ -9,6 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 
 @Service
 public class AuthService {
@@ -42,7 +43,7 @@ public class AuthService {
     user.setName(registerRequest.getName());
     user.setPassword(passwordEncoder.encode(registerRequest.getPassword()));
     user.setRole(User.Role.USER);
-    user.setAuthProvider(User.AuthProvider.LOCAL);
+    user.setAuthProvider(new HashSet<>(List.of(User.AuthProvider.LOCAL)));
 
     userRepository.save(user);
 
@@ -60,7 +61,7 @@ public class AuthService {
       throw new RuntimeException("User not found");
     }
 
-    if (user.getAuthProvider() != User.AuthProvider.LOCAL) {
+    if (!user.getAuthProvider().contains(User.AuthProvider.LOCAL)) {
       throw new RuntimeException("Invalid Authentication Method");
     }
 
