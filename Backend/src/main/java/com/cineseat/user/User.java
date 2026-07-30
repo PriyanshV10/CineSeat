@@ -34,6 +34,9 @@ public class User {
   private String phoneNumber;
   private String avatarUrl;
 
+  @Column(nullable = false)
+  private boolean isEmailVerified = false;
+
   @ElementCollection(fetch = FetchType.EAGER)
   @CollectionTable(name = "user_auth_providers", joinColumns = @JoinColumn(name = "user_id"))
   @Enumerated(EnumType.STRING)

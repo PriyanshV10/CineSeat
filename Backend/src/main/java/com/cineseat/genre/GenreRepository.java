@@ -1,4 +1,4 @@
-package com.cineseat.movie;
+package com.cineseat.genre;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

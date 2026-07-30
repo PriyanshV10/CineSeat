@@ -2,14 +2,11 @@ package com.cineseat.movie;
 
 import jakarta.validation.Valid;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/admin/movies")
-@PreAuthorize("hasAnyRole('ADMIN', 'THEATER')")
+@PreAuthorize("hasRole('ADMIN')")
 public class AdminMovieController {
   private final MovieService movieService;
 
@@ -20,5 +17,15 @@ public class AdminMovieController {
   @PostMapping
   public Movie addMovie(@Valid @RequestBody CreateMovieRequest request) {
     return movieService.addMovie(request);
+  }
+
+  @PutMapping("/{id}")
+  public Movie updateMovie(@Valid @RequestBody CreateMovieRequest request, @PathVariable long id) {
+    return movieService.updateMovie(request, id);
+  }
+
+  @DeleteMapping("/{id}")
+  public void deleteMovie(@PathVariable long id) {
+    movieService.deleteMovie(id);
   }
 }

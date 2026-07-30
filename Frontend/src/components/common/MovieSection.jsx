@@ -21,13 +21,17 @@ const MovieSection = ({ title, movies, link }) => {
         )}
       </div>
 
-      <div className="relative">
-        {/* Simple Grid for now, can be carousel later */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-          {movies.slice(0, 5).map((movie) => (
-            <MovieCard key={movie.id} movie={movie} />
+      <div className="relative group">
+        <div className="flex gap-6 overflow-x-auto pb-4 hide-scrollbar snap-x snap-mandatory">
+          {movies.map((movie) => (
+            <div key={movie.id} className="w-[160px] md:w-[200px] lg:w-[240px] flex-none snap-start">
+              <MovieCard movie={movie} />
+            </div>
           ))}
         </div>
+        
+        {/* Scroll Fades */}
+        <div className="absolute top-0 right-0 bottom-4 w-12 bg-gradient-to-l from-background to-transparent pointer-events-none"></div>
       </div>
     </div>
   );

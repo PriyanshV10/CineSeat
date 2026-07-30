@@ -10,6 +10,9 @@ import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
 import java.util.List;
+import java.util.UUID;
+import java.time.LocalDateTime;
+import com.cineseat.email.EmailService;
 
 @Service
 public class AuthService {
@@ -21,16 +24,22 @@ public class AuthService {
   private final JwtService jwtService;
   private final PasswordEncoder passwordEncoder;
   private final RefreshTokenService refreshTokenService;
+  private final VerificationTokenRepository verificationTokenRepository;
+  private final EmailService emailService;
 
   public AuthService(
       UserRepository userRepository,
       JwtService jwtService,
       PasswordEncoder passwordEncoder,
-      RefreshTokenService refreshTokenService) {
+      RefreshTokenService refreshTokenService,
+      VerificationTokenRepository verificationTokenRepository,
+      EmailService emailService) {
     this.userRepository = userRepository;
     this.jwtService = jwtService;
     this.passwordEncoder = passwordEncoder;
     this.refreshTokenService = refreshTokenService;
+    this.verificationTokenRepository = verificationTokenRepository;
+    this.emailService = emailService;
   }
 
   public AuthResponse register(RegisterRequest registerRequest) {
@@ -47,11 +56,31 @@ public class AuthService {
 
     userRepository.save(user);
 
+    String token = UUID.randomUUID().toString();
+    VerificationToken verificationToken = new VerificationToken(token, user);
+    verificationTokenRepository.save(verificationToken);
+    
+    emailService.sendVerificationEmail(user.getEmail(), token);
+
     String accessToken = jwtService.generateToken(user.getEmail());
     refreshTokenService.deleteByUserId(user.getId());
     RefreshToken refreshToken = refreshTokenService.createRefreshToken(user.getId());
 
     return new AuthResponse(accessToken, refreshToken.getToken(), user.getName(), user.getEmail());
+  }
+
+  public void verifyEmail(String token) {
+    VerificationToken verificationToken = verificationTokenRepository.findByToken(token)
+        .orElseThrow(() -> new RuntimeException("Invalid verification token"));
+
+    if (verificationToken.getExpiryDate().isBefore(LocalDateTime.now())) {
+      throw new RuntimeException("Verification token has expired");
+    }
+
+    User user = verificationToken.getUser();
+    user.setEmailVerified(true);
+    userRepository.save(user);
+    verificationTokenRepository.delete(verificationToken);
   }
 
   public AuthResponse login(LoginRequest loginRequest) {

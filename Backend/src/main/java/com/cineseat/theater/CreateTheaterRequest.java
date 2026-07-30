@@ -17,4 +17,6 @@ public class CreateTheaterRequest {
 
   @NotBlank(message = "City is required")
   private Long cityId;
+
+  private Long ownerId;
 }

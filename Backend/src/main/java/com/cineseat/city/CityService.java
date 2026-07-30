@@ -33,4 +33,11 @@ public class CityService {
 
     return cities;
   }
+
+  public City addCity(CreateCityRequest request) {
+    City city = new City();
+    city.setName(request.getName());
+    city.setState(request.getState());
+    return cityRepository.save(city);
+  }
 }

@@ -84,9 +84,12 @@ const TheaterListing = () => {
     return <div className="text-center py-20 dark:text-white">Loading...</div>;
 
   const showsByTheater = shows.reduce((acc, show) => {
-    const theaterId = show.theater.id;
+    const theater = show.screen?.theater || show.theater;
+    if (!theater) return acc;
+    
+    const theaterId = theater.id;
     if (!acc[theaterId]) {
-      acc[theaterId] = { theater: show.theater, shows: [] };
+      acc[theaterId] = { theater: theater, shows: [] };
     }
     acc[theaterId].shows.push(show);
     return acc;

@@ -1,0 +1,646 @@
+[INFO] Scanning for projects...
+[WARNING] 
+[WARNING] Some problems were encountered while building the effective model for com.cineseat:CineSeat:jar:0.0.1-SNAPSHOT
+[WARNING] 'dependencies.dependency.version' for com.resend:resend-java:jar is either LATEST or RELEASE (both of them are being deprecated) @ line 103, column 22
+[WARNING] 
+[WARNING] It is highly recommended to fix these problems because they threaten the stability of your build.
+[WARNING] 
+[WARNING] For this reason, future Maven versions might no longer support building such malformed projects.
+[WARNING] 
+[INFO] 
+[INFO] -----------------------< com.cineseat:CineSeat >------------------------
+[INFO] Building CineSeat 0.0.1-SNAPSHOT
+[INFO]   from pom.xml
+[INFO] --------------------------------[ jar ]---------------------------------
+[INFO] 
+[INFO] --- clean:3.3.2:clean (default-clean) @ CineSeat ---
+[INFO] Deleting /home/priyansh/Development/CineSeat/Backend/target
+[INFO] 
+[INFO] --- resources:3.3.1:resources (default-resources) @ CineSeat ---
+[INFO] Copying 1 resource from src/main/resources to target/classes
+[INFO] Copying 0 resource from src/main/resources to target/classes
+[INFO] 
+[INFO] --- compiler:3.13.0:compile (default-compile) @ CineSeat ---
+[INFO] Recompiling the module because of changed source code.
+[INFO] Compiling 90 source files with javac [debug parameters release 21] to target/classes
+[INFO] -------------------------------------------------------------
+[ERROR] COMPILATION ERROR : 
+[INFO] -------------------------------------------------------------
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[26,70] cannot find symbol
+  symbol:   method getRefreshToken()
+  location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[32,78] cannot find symbol
+  symbol:   method getEmail()
+  location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[32,58] cannot find symbol
+  symbol:   method getName()
+  location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[32,25] cannot find symbol
+  symbol:   method getAccessToken()
+  location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[40,70] cannot find symbol
+  symbol:   method getRefreshToken()
+  location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[46,78] cannot find symbol
+  symbol:   method getEmail()
+  location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[46,58] cannot find symbol
+  symbol:   method getName()
+  location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[46,25] cannot find symbol
+  symbol:   method getAccessToken()
+  location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[72,35] constructor TokenRefreshRequest in class com.cineseat.auth.TokenRefreshRequest cannot be applied to given types;
+  required: no arguments
+  found:    java.lang.String
+  reason: actual and formal argument lists differ in length
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[77,87] cannot find symbol
+  symbol:   method getEmail()
+  location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[77,67] cannot find symbol
+  symbol:   method getName()
+  location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[77,34] cannot find symbol
+  symbol:   method getAccessToken()
+  location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[82,36] cannot find symbol
+  symbol:   method getToken()
+  location: variable request of type com.cineseat.auth.VerifyEmailRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[46,51] cannot find symbol
+  symbol:   method getEmail()
+  location: variable registerRequest of type com.cineseat.auth.RegisterRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[51,34] cannot find symbol
+  symbol:   method getEmail()
+  location: variable registerRequest of type com.cineseat.auth.RegisterRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[52,33] cannot find symbol
+  symbol:   method getName()
+  location: variable registerRequest of type com.cineseat.auth.RegisterRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[53,60] cannot find symbol
+  symbol:   method getPassword()
+  location: variable registerRequest of type com.cineseat.auth.RegisterRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[54,9] cannot find symbol
+  symbol:   method setRole(com.cineseat.user.User.Role)
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[55,9] cannot find symbol
+  symbol:   method setAuthProvider(java.util.HashSet<com.cineseat.user.User.AuthProvider>)
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[63,44] cannot find symbol
+  symbol:   method getEmail()
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[65,55] cannot find symbol
+  symbol:   method getEmail()
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[66,44] cannot find symbol
+  symbol:   method getId()
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[67,76] cannot find symbol
+  symbol:   method getId()
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[69,87] cannot find symbol
+  symbol:   method getEmail()
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[69,71] cannot find symbol
+  symbol:   method getName()
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[69,54] cannot find symbol
+  symbol:   method getToken()
+  location: variable refreshToken of type com.cineseat.auth.RefreshToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[76,26] cannot find symbol
+  symbol:   method getExpiryDate()
+  location: variable verificationToken of type com.cineseat.auth.VerificationToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[80,34] cannot find symbol
+  symbol:   method getUser()
+  location: variable verificationToken of type com.cineseat.auth.VerificationToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[81,9] cannot find symbol
+  symbol:   method setEmailVerified(boolean)
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[87,56] cannot find symbol
+  symbol:   method getEmail()
+  location: variable loginRequest of type com.cineseat.auth.LoginRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[93,14] cannot find symbol
+  symbol:   method getAuthProvider()
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[97,46] cannot find symbol
+  symbol:   method getPassword()
+  location: variable loginRequest of type com.cineseat.auth.LoginRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[97,66] cannot find symbol
+  symbol:   method getPassword()
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[101,55] cannot find symbol
+  symbol:   method getEmail()
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[102,44] cannot find symbol
+  symbol:   method getId()
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[103,76] cannot find symbol
+  symbol:   method getId()
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[105,87] cannot find symbol
+  symbol:   method getEmail()
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[105,71] cannot find symbol
+  symbol:   method getName()
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[105,54] cannot find symbol
+  symbol:   method getToken()
+  location: variable refreshToken of type com.cineseat.auth.RefreshToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[109,41] cannot find symbol
+  symbol:   method getRefreshToken()
+  location: variable request of type com.cineseat.auth.TokenRefreshRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[117,29] cannot find symbol
+  symbol:   method getUser()
+  location: variable refreshToken of type com.cineseat.auth.RefreshToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[118,55] cannot find symbol
+  symbol:   method getEmail()
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[120,87] cannot find symbol
+  symbol:   method getEmail()
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[120,71] cannot find symbol
+  symbol:   method getName()
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[120,54] cannot find symbol
+  symbol:   method getToken()
+  location: variable refreshToken of type com.cineseat.auth.RefreshToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[127,54] cannot find symbol
+  symbol:   method getUser()
+  location: variable refreshToken of type com.cineseat.auth.RefreshToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/RefreshTokenService.java:[31,21] cannot find symbol
+  symbol:   method setUser(com.cineseat.user.User)
+  location: variable refreshToken of type com.cineseat.auth.RefreshToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/RefreshTokenService.java:[32,21] cannot find symbol
+  symbol:   method setExpiresDate(java.time.Instant)
+  location: variable refreshToken of type com.cineseat.auth.RefreshToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/RefreshTokenService.java:[33,21] cannot find symbol
+  symbol:   method setToken(java.lang.String)
+  location: variable refreshToken of type com.cineseat.auth.RefreshToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/RefreshTokenService.java:[40,17] cannot find symbol
+  symbol:   method getExpiresDate()
+  location: variable token of type com.cineseat.auth.RefreshToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordController.java:[22,55] cannot find symbol
+  symbol:   method getEmail()
+  location: variable request of type com.cineseat.auth.password.ForgotPasswordRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordController.java:[29,47] cannot find symbol
+  symbol:   method getToken()
+  location: variable request of type com.cineseat.auth.password.ResetPasswordRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordController.java:[29,67] cannot find symbol
+  symbol:   method getPassword()
+  location: variable request of type com.cineseat.auth.password.ResetPasswordRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordService.java:[45,24] cannot find symbol
+  symbol:   method setToken(java.lang.String)
+  location: variable forgotPasswordToken of type com.cineseat.auth.password.ForgotPasswordToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordService.java:[46,24] cannot find symbol
+  symbol:   method setUser(com.cineseat.user.User)
+  location: variable forgotPasswordToken of type com.cineseat.auth.password.ForgotPasswordToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordService.java:[47,24] cannot find symbol
+  symbol:   method setCreatedAt(java.time.LocalDateTime)
+  location: variable forgotPasswordToken of type com.cineseat.auth.password.ForgotPasswordToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordService.java:[48,24] cannot find symbol
+  symbol:   method setExpiresAt(java.time.LocalDateTime)
+  location: variable forgotPasswordToken of type com.cineseat.auth.password.ForgotPasswordToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordService.java:[61,27] cannot find symbol
+  symbol:   method getUser()
+  location: variable resetToken of type com.cineseat.auth.password.ForgotPasswordToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordService.java:[66,19] cannot find symbol
+  symbol:   method getExpiresAt()
+  location: variable resetToken of type com.cineseat.auth.password.ForgotPasswordToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordService.java:[70,9] cannot find symbol
+  symbol:   method setPassword(java.lang.String)
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordService.java:[71,9] cannot find symbol
+  symbol:   method getAuthProvider()
+  location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[38,48] cannot find symbol
+  symbol:   method getShowId()
+  location: variable request of type com.cineseat.booking.CreateBookingRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[41,96] cannot find symbol
+  symbol:   method getShowSeatIds()
+  location: variable request of type com.cineseat.booking.CreateBookingRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[43,40] cannot find symbol
+  symbol:   method getShowSeatIds()
+  location: variable request of type com.cineseat.booking.CreateBookingRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[49,15] cannot find symbol
+  symbol:   method getStatus()
+  location: variable seat of type com.cineseat.seat.ShowSeat
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[50,50] cannot find symbol
+  symbol:   method getSeat()
+  location: variable seat of type com.cineseat.seat.ShowSeat
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[53,11] cannot find symbol
+  symbol:   method setStatus(com.cineseat.seat.ShowSeat.SeatStatus)
+  location: variable seat of type com.cineseat.seat.ShowSeat
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[54,39] cannot find symbol
+  symbol:   method getPrice()
+  location: variable seat of type com.cineseat.seat.ShowSeat
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[61,12] cannot find symbol
+  symbol:   method setUser(com.cineseat.user.User)
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[62,12] cannot find symbol
+  symbol:   method setShow(com.cineseat.show.Show)
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[63,12] cannot find symbol
+  symbol:   method setShowSeats(java.util.List<com.cineseat.seat.ShowSeat>)
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[64,12] cannot find symbol
+  symbol:   method setStatus(com.cineseat.booking.Booking.BookingStatus)
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[65,12] cannot find symbol
+  symbol:   method setBookingTime(java.time.LocalDateTime)
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[67,12] cannot find symbol
+  symbol:   method setExpirationTime(java.time.LocalDateTime)
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[68,12] cannot find symbol
+  symbol:   method setTotalPrice(java.math.BigDecimal)
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[78,16] cannot find symbol
+  symbol:   method getStatus()
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[82,12] cannot find symbol
+  symbol:   method setStatus(com.cineseat.booking.Booking.BookingStatus)
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[83,33] cannot find symbol
+  symbol:   method getShowSeats()
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[84,13] cannot find symbol
+  symbol:   method setStatus(com.cineseat.seat.ShowSeat.SeatStatus)
+  location: variable seat of type com.cineseat.seat.ShowSeat
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[87,39] cannot find symbol
+  symbol:   method getShowSeats()
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[98,14] cannot find symbol
+  symbol:   method setStatus(com.cineseat.booking.Booking.BookingStatus)
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[99,35] cannot find symbol
+  symbol:   method getShowSeats()
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[100,13] cannot find symbol
+  symbol:   method setStatus(com.cineseat.seat.ShowSeat.SeatStatus)
+  location: variable seat of type com.cineseat.seat.ShowSeat
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[102,41] cannot find symbol
+  symbol:   method getShowSeats()
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[121,16] cannot find symbol
+  symbol:   method getStatus()
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[121,74] cannot find symbol
+  symbol:   method getStatus()
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[125,12] cannot find symbol
+  symbol:   method setStatus(com.cineseat.booking.Booking.BookingStatus)
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[126,33] cannot find symbol
+  symbol:   method getShowSeats()
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[127,11] cannot find symbol
+  symbol:   method setStatus(com.cineseat.seat.ShowSeat.SeatStatus)
+  location: variable seat of type com.cineseat.seat.ShowSeat
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[129,39] cannot find symbol
+  symbol:   method getShowSeats()
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[135,16] cannot find symbol
+  symbol:   method getStatus()
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[139,39] cannot find symbol
+  symbol:   method getId()
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[139,63] cannot find symbol
+  symbol:   method getUser()
+  location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/show/ShowService.java:[43,52] cannot find symbol
+  symbol:   method getMovieId()
+  location: variable request of type com.cineseat.show.CreateShowRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/show/ShowService.java:[44,56] cannot find symbol
+  symbol:   method getScreenId()
+  location: variable request of type com.cineseat.show.CreateShowRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/show/ShowService.java:[47,9] cannot find symbol
+  symbol:   method setMovie(com.cineseat.movie.Movie)
+  location: variable show of type com.cineseat.show.Show
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/show/ShowService.java:[48,9] cannot find symbol
+  symbol:   method setScreen(com.cineseat.screen.Screen)
+  location: variable show of type com.cineseat.show.Show
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/show/ShowService.java:[49,30] cannot find symbol
+  symbol:   method getStartTime()
+  location: variable request of type com.cineseat.show.CreateShowRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/show/ShowService.java:[50,26] cannot find symbol
+  symbol:   method getPrice()
+  location: variable request of type com.cineseat.show.CreateShowRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/show/ShowService.java:[55,59] cannot find symbol
+  symbol:   method getId()
+  location: variable screen of type com.cineseat.screen.Screen
+[INFO] 100 errors 
+[INFO] -------------------------------------------------------------
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD FAILURE
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  1.696 s
+[INFO] Finished at: 2026-07-30T11:59:02+05:30
+[INFO] ------------------------------------------------------------------------
+[ERROR] Failed to execute goal org.apache.maven.plugins:maven-compiler-plugin:3.13.0:compile (default-compile) on project CineSeat: Compilation failure: Compilation failure: 
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[26,70] cannot find symbol
+[ERROR]   symbol:   method getRefreshToken()
+[ERROR]   location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[32,78] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[32,58] cannot find symbol
+[ERROR]   symbol:   method getName()
+[ERROR]   location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[32,25] cannot find symbol
+[ERROR]   symbol:   method getAccessToken()
+[ERROR]   location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[40,70] cannot find symbol
+[ERROR]   symbol:   method getRefreshToken()
+[ERROR]   location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[46,78] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[46,58] cannot find symbol
+[ERROR]   symbol:   method getName()
+[ERROR]   location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[46,25] cannot find symbol
+[ERROR]   symbol:   method getAccessToken()
+[ERROR]   location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[72,35] constructor TokenRefreshRequest in class com.cineseat.auth.TokenRefreshRequest cannot be applied to given types;
+[ERROR]   required: no arguments
+[ERROR]   found:    java.lang.String
+[ERROR]   reason: actual and formal argument lists differ in length
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[77,87] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[77,67] cannot find symbol
+[ERROR]   symbol:   method getName()
+[ERROR]   location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[77,34] cannot find symbol
+[ERROR]   symbol:   method getAccessToken()
+[ERROR]   location: variable response of type com.cineseat.auth.AuthResponse
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthController.java:[82,36] cannot find symbol
+[ERROR]   symbol:   method getToken()
+[ERROR]   location: variable request of type com.cineseat.auth.VerifyEmailRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[46,51] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable registerRequest of type com.cineseat.auth.RegisterRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[51,34] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable registerRequest of type com.cineseat.auth.RegisterRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[52,33] cannot find symbol
+[ERROR]   symbol:   method getName()
+[ERROR]   location: variable registerRequest of type com.cineseat.auth.RegisterRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[53,60] cannot find symbol
+[ERROR]   symbol:   method getPassword()
+[ERROR]   location: variable registerRequest of type com.cineseat.auth.RegisterRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[54,9] cannot find symbol
+[ERROR]   symbol:   method setRole(com.cineseat.user.User.Role)
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[55,9] cannot find symbol
+[ERROR]   symbol:   method setAuthProvider(java.util.HashSet<com.cineseat.user.User.AuthProvider>)
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[63,44] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[65,55] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[66,44] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[67,76] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[69,87] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[69,71] cannot find symbol
+[ERROR]   symbol:   method getName()
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[69,54] cannot find symbol
+[ERROR]   symbol:   method getToken()
+[ERROR]   location: variable refreshToken of type com.cineseat.auth.RefreshToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[76,26] cannot find symbol
+[ERROR]   symbol:   method getExpiryDate()
+[ERROR]   location: variable verificationToken of type com.cineseat.auth.VerificationToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[80,34] cannot find symbol
+[ERROR]   symbol:   method getUser()
+[ERROR]   location: variable verificationToken of type com.cineseat.auth.VerificationToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[81,9] cannot find symbol
+[ERROR]   symbol:   method setEmailVerified(boolean)
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[87,56] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable loginRequest of type com.cineseat.auth.LoginRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[93,14] cannot find symbol
+[ERROR]   symbol:   method getAuthProvider()
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[97,46] cannot find symbol
+[ERROR]   symbol:   method getPassword()
+[ERROR]   location: variable loginRequest of type com.cineseat.auth.LoginRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[97,66] cannot find symbol
+[ERROR]   symbol:   method getPassword()
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[101,55] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[102,44] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[103,76] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[105,87] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[105,71] cannot find symbol
+[ERROR]   symbol:   method getName()
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[105,54] cannot find symbol
+[ERROR]   symbol:   method getToken()
+[ERROR]   location: variable refreshToken of type com.cineseat.auth.RefreshToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[109,41] cannot find symbol
+[ERROR]   symbol:   method getRefreshToken()
+[ERROR]   location: variable request of type com.cineseat.auth.TokenRefreshRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[117,29] cannot find symbol
+[ERROR]   symbol:   method getUser()
+[ERROR]   location: variable refreshToken of type com.cineseat.auth.RefreshToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[118,55] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[120,87] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[120,71] cannot find symbol
+[ERROR]   symbol:   method getName()
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[120,54] cannot find symbol
+[ERROR]   symbol:   method getToken()
+[ERROR]   location: variable refreshToken of type com.cineseat.auth.RefreshToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/AuthService.java:[127,54] cannot find symbol
+[ERROR]   symbol:   method getUser()
+[ERROR]   location: variable refreshToken of type com.cineseat.auth.RefreshToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/RefreshTokenService.java:[31,21] cannot find symbol
+[ERROR]   symbol:   method setUser(com.cineseat.user.User)
+[ERROR]   location: variable refreshToken of type com.cineseat.auth.RefreshToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/RefreshTokenService.java:[32,21] cannot find symbol
+[ERROR]   symbol:   method setExpiresDate(java.time.Instant)
+[ERROR]   location: variable refreshToken of type com.cineseat.auth.RefreshToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/RefreshTokenService.java:[33,21] cannot find symbol
+[ERROR]   symbol:   method setToken(java.lang.String)
+[ERROR]   location: variable refreshToken of type com.cineseat.auth.RefreshToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/RefreshTokenService.java:[40,17] cannot find symbol
+[ERROR]   symbol:   method getExpiresDate()
+[ERROR]   location: variable token of type com.cineseat.auth.RefreshToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordController.java:[22,55] cannot find symbol
+[ERROR]   symbol:   method getEmail()
+[ERROR]   location: variable request of type com.cineseat.auth.password.ForgotPasswordRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordController.java:[29,47] cannot find symbol
+[ERROR]   symbol:   method getToken()
+[ERROR]   location: variable request of type com.cineseat.auth.password.ResetPasswordRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordController.java:[29,67] cannot find symbol
+[ERROR]   symbol:   method getPassword()
+[ERROR]   location: variable request of type com.cineseat.auth.password.ResetPasswordRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordService.java:[45,24] cannot find symbol
+[ERROR]   symbol:   method setToken(java.lang.String)
+[ERROR]   location: variable forgotPasswordToken of type com.cineseat.auth.password.ForgotPasswordToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordService.java:[46,24] cannot find symbol
+[ERROR]   symbol:   method setUser(com.cineseat.user.User)
+[ERROR]   location: variable forgotPasswordToken of type com.cineseat.auth.password.ForgotPasswordToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordService.java:[47,24] cannot find symbol
+[ERROR]   symbol:   method setCreatedAt(java.time.LocalDateTime)
+[ERROR]   location: variable forgotPasswordToken of type com.cineseat.auth.password.ForgotPasswordToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordService.java:[48,24] cannot find symbol
+[ERROR]   symbol:   method setExpiresAt(java.time.LocalDateTime)
+[ERROR]   location: variable forgotPasswordToken of type com.cineseat.auth.password.ForgotPasswordToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordService.java:[61,27] cannot find symbol
+[ERROR]   symbol:   method getUser()
+[ERROR]   location: variable resetToken of type com.cineseat.auth.password.ForgotPasswordToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordService.java:[66,19] cannot find symbol
+[ERROR]   symbol:   method getExpiresAt()
+[ERROR]   location: variable resetToken of type com.cineseat.auth.password.ForgotPasswordToken
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordService.java:[70,9] cannot find symbol
+[ERROR]   symbol:   method setPassword(java.lang.String)
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/auth/password/PasswordService.java:[71,9] cannot find symbol
+[ERROR]   symbol:   method getAuthProvider()
+[ERROR]   location: variable user of type com.cineseat.user.User
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[38,48] cannot find symbol
+[ERROR]   symbol:   method getShowId()
+[ERROR]   location: variable request of type com.cineseat.booking.CreateBookingRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[41,96] cannot find symbol
+[ERROR]   symbol:   method getShowSeatIds()
+[ERROR]   location: variable request of type com.cineseat.booking.CreateBookingRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[43,40] cannot find symbol
+[ERROR]   symbol:   method getShowSeatIds()
+[ERROR]   location: variable request of type com.cineseat.booking.CreateBookingRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[49,15] cannot find symbol
+[ERROR]   symbol:   method getStatus()
+[ERROR]   location: variable seat of type com.cineseat.seat.ShowSeat
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[50,50] cannot find symbol
+[ERROR]   symbol:   method getSeat()
+[ERROR]   location: variable seat of type com.cineseat.seat.ShowSeat
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[53,11] cannot find symbol
+[ERROR]   symbol:   method setStatus(com.cineseat.seat.ShowSeat.SeatStatus)
+[ERROR]   location: variable seat of type com.cineseat.seat.ShowSeat
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[54,39] cannot find symbol
+[ERROR]   symbol:   method getPrice()
+[ERROR]   location: variable seat of type com.cineseat.seat.ShowSeat
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[61,12] cannot find symbol
+[ERROR]   symbol:   method setUser(com.cineseat.user.User)
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[62,12] cannot find symbol
+[ERROR]   symbol:   method setShow(com.cineseat.show.Show)
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[63,12] cannot find symbol
+[ERROR]   symbol:   method setShowSeats(java.util.List<com.cineseat.seat.ShowSeat>)
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[64,12] cannot find symbol
+[ERROR]   symbol:   method setStatus(com.cineseat.booking.Booking.BookingStatus)
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[65,12] cannot find symbol
+[ERROR]   symbol:   method setBookingTime(java.time.LocalDateTime)
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[67,12] cannot find symbol
+[ERROR]   symbol:   method setExpirationTime(java.time.LocalDateTime)
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[68,12] cannot find symbol
+[ERROR]   symbol:   method setTotalPrice(java.math.BigDecimal)
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[78,16] cannot find symbol
+[ERROR]   symbol:   method getStatus()
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[82,12] cannot find symbol
+[ERROR]   symbol:   method setStatus(com.cineseat.booking.Booking.BookingStatus)
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[83,33] cannot find symbol
+[ERROR]   symbol:   method getShowSeats()
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[84,13] cannot find symbol
+[ERROR]   symbol:   method setStatus(com.cineseat.seat.ShowSeat.SeatStatus)
+[ERROR]   location: variable seat of type com.cineseat.seat.ShowSeat
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[87,39] cannot find symbol
+[ERROR]   symbol:   method getShowSeats()
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[98,14] cannot find symbol
+[ERROR]   symbol:   method setStatus(com.cineseat.booking.Booking.BookingStatus)
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[99,35] cannot find symbol
+[ERROR]   symbol:   method getShowSeats()
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[100,13] cannot find symbol
+[ERROR]   symbol:   method setStatus(com.cineseat.seat.ShowSeat.SeatStatus)
+[ERROR]   location: variable seat of type com.cineseat.seat.ShowSeat
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[102,41] cannot find symbol
+[ERROR]   symbol:   method getShowSeats()
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[121,16] cannot find symbol
+[ERROR]   symbol:   method getStatus()
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[121,74] cannot find symbol
+[ERROR]   symbol:   method getStatus()
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[125,12] cannot find symbol
+[ERROR]   symbol:   method setStatus(com.cineseat.booking.Booking.BookingStatus)
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[126,33] cannot find symbol
+[ERROR]   symbol:   method getShowSeats()
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[127,11] cannot find symbol
+[ERROR]   symbol:   method setStatus(com.cineseat.seat.ShowSeat.SeatStatus)
+[ERROR]   location: variable seat of type com.cineseat.seat.ShowSeat
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[129,39] cannot find symbol
+[ERROR]   symbol:   method getShowSeats()
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[135,16] cannot find symbol
+[ERROR]   symbol:   method getStatus()
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[139,39] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/booking/BookingService.java:[139,63] cannot find symbol
+[ERROR]   symbol:   method getUser()
+[ERROR]   location: variable booking of type com.cineseat.booking.Booking
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/show/ShowService.java:[43,52] cannot find symbol
+[ERROR]   symbol:   method getMovieId()
+[ERROR]   location: variable request of type com.cineseat.show.CreateShowRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/show/ShowService.java:[44,56] cannot find symbol
+[ERROR]   symbol:   method getScreenId()
+[ERROR]   location: variable request of type com.cineseat.show.CreateShowRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/show/ShowService.java:[47,9] cannot find symbol
+[ERROR]   symbol:   method setMovie(com.cineseat.movie.Movie)
+[ERROR]   location: variable show of type com.cineseat.show.Show
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/show/ShowService.java:[48,9] cannot find symbol
+[ERROR]   symbol:   method setScreen(com.cineseat.screen.Screen)
+[ERROR]   location: variable show of type com.cineseat.show.Show
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/show/ShowService.java:[49,30] cannot find symbol
+[ERROR]   symbol:   method getStartTime()
+[ERROR]   location: variable request of type com.cineseat.show.CreateShowRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/show/ShowService.java:[50,26] cannot find symbol
+[ERROR]   symbol:   method getPrice()
+[ERROR]   location: variable request of type com.cineseat.show.CreateShowRequest
+[ERROR] /home/priyansh/Development/CineSeat/Backend/src/main/java/com/cineseat/show/ShowService.java:[55,59] cannot find symbol
+[ERROR]   symbol:   method getId()
+[ERROR]   location: variable screen of type com.cineseat.screen.Screen
+[ERROR] -> [Help 1]
+[ERROR] 
+[ERROR] To see the full stack trace of the errors, re-run Maven with the -e switch.
+[ERROR] Re-run Maven using the -X switch to enable full debug logging.
+[ERROR] 
+[ERROR] For more information about the errors and possible solutions, please read the following articles:
+[ERROR] [Help 1] http://cwiki.apache.org/confluence/display/MAVEN/MojoFailureException

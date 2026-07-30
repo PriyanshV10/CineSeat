@@ -4,6 +4,7 @@ import com.cineseat.show.Show;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 
 @Entity
@@ -31,6 +32,8 @@ public class ShowSeat {
   private SeatStatus status;
 
   private LocalDateTime lockedUntil;
+
+  private BigDecimal price;
 
   public enum SeatStatus {
     AVAILABLE,
