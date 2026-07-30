@@ -12,8 +12,14 @@ import MovieDetails from "./pages/MovieDetails";
 import SeatSelection from "./pages/SeatSelection";
 import BookingSuccess from "./pages/BookingSuccess";
 import UserBookings from "./pages/UserBookings";
+import Profile from "./pages/Profile";
 
+import AdminLayout from "./components/layout/AdminLayout";
 import AdminDashboard from "./pages/admin/AdminDashboard";
+import AdminMovies from "./pages/admin/AdminMovies";
+import AdminTheaters from "./pages/admin/AdminTheaters";
+import TheaterShows from "./pages/admin/TheaterShows";
+import AdminUsers from "./pages/admin/AdminUsers";
 
 const ProtectedRoute = ({ children, allowedRoles = [] }) => {
   const { user, loading } = useAuth();
@@ -31,7 +37,7 @@ const ProtectedRoute = ({ children, allowedRoles = [] }) => {
   }
 
   if (allowedRoles.length > 0) {
-    const hasRole = allowedRoles.some((role) => user.role === role);
+    const hasRole = allowedRoles.some((role) => user.role && user.role.includes(role));
     if (!hasRole) {
       return <Navigate to="/" />;
     }
@@ -58,91 +64,86 @@ const PublicRoute = ({ children, restricted = false }) => {
   return children;
 };
 
-
 function App() {
   return (
-    <Layout>
-      <Routes>
-        {/* Public Routes */}
-        <Route path="/" element={<Home />} />
-        <Route path="/search" element={<SearchPage />} />
-        <Route path="/movies/:id" element={<MovieDetails />} />
-        <Route path="/buy/movies/:id" element={<TheaterListing />} />
-        <Route path="/oauth/callback" element={<OAuthCallback />} />
+    <Routes>
+      {/* Regular App Routes with Standard Layout */}
+      <Route path="/" element={<Layout><Home /></Layout>} />
+      <Route path="/search" element={<Layout><SearchPage /></Layout>} />
+      <Route path="/movies/:id" element={<Layout><MovieDetails /></Layout>} />
+      <Route path="/buy/movies/:id" element={<Layout><TheaterListing /></Layout>} />
+      <Route path="/oauth/callback" element={<Layout><OAuthCallback /></Layout>} />
 
-        {/* Auth Routes */}
-        <Route
-          path="/login"
-          element={
-            <PublicRoute restricted>
-              <Login />
-            </PublicRoute>
-          }
-        />
-        <Route
-          path="/signup"
-          element={
-            <PublicRoute restricted>
-              <Signup />
-            </PublicRoute>
-          }
-        />
+      {/* Auth Routes */}
+      <Route
+        path="/login"
+        element={
+          <PublicRoute restricted>
+            <Layout><Login /></Layout>
+          </PublicRoute>
+        }
+      />
+      <Route
+        path="/signup"
+        element={
+          <PublicRoute restricted>
+            <Layout><Signup /></Layout>
+          </PublicRoute>
+        }
+      />
 
-        {/* User Protected Routes */}
-        <Route
-          path="/book/show/:id"
-          element={
-            <ProtectedRoute>
-              <SeatSelection />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/booking/success"
-          element={
-            <ProtectedRoute>
-              <BookingSuccess />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/bookings"
-          element={
-            <ProtectedRoute>
-              <UserBookings />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/profile"
-          element={
-            <ProtectedRoute>
-              <div className="text-gray-900 dark:text-white text-center py-20">
-                Profile Page (Coming Soon)
-              </div>
-            </ProtectedRoute>
-          }
-        />
+      {/* User Protected Routes */}
+      <Route
+        path="/book/show/:id"
+        element={
+          <ProtectedRoute>
+            <Layout><SeatSelection /></Layout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/booking/success"
+        element={
+          <ProtectedRoute>
+            <Layout><BookingSuccess /></Layout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/bookings"
+        element={
+          <ProtectedRoute>
+            <Layout><UserBookings /></Layout>
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/profile"
+        element={
+          <ProtectedRoute>
+            <Layout><Profile /></Layout>
+          </ProtectedRoute>
+        }
+      />
 
-        {/* Admin/Partner Routes */}
-        <Route
-          path="/admin/dashboard"
-          element={
-            <ProtectedRoute allowedRoles={["ADMIN", "THEATER"]}>
-              <AdminDashboard />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/admin/*"
-          element={
-            <ProtectedRoute allowedRoles={["ADMIN", "THEATER"]}>
-              <Navigate to="/admin/dashboard" />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
-    </Layout>
+      {/* Admin/Partner Routes with Admin Layout */}
+      <Route
+        path="/admin"
+        element={
+          <ProtectedRoute allowedRoles={["ADMIN", "THEATER"]}>
+            <AdminLayout />
+          </ProtectedRoute>
+        }
+      >
+        <Route index element={<Navigate to="dashboard" replace />} />
+        <Route path="dashboard" element={<AdminDashboard />} />
+        <Route path="movies" element={<AdminMovies />} />
+        <Route path="theaters" element={<AdminTheaters />} />
+        <Route path="shows" element={<TheaterShows />} />
+        <Route path="users" element={<AdminUsers />} />
+        <Route path="*" element={<Navigate to="dashboard" replace />} />
+      </Route>
+    </Routes>
   );
 }
 

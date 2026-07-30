@@ -28,6 +28,10 @@ public class UserService {
     throw new ResponseStatusException(HttpStatus.UNAUTHORIZED, "Unauthorized");
   }
 
+  public User getUserById(Long id) {
+    return userRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("User not found!"));
+  }
+
   @Transactional
   public User updateCurrentUser(UpdateUserRequest request) {
     User currentUser = getCurrentUser();
@@ -50,5 +54,16 @@ public class UserService {
 
     user.setAvatarUrl(avatarUrl);
     userRepository.save(user);
+  }
+
+  public java.util.List<User> getAllUsers() {
+    return userRepository.findAll();
+  }
+
+  @Transactional
+  public User updateUserRole(Long id, User.Role role) {
+    User user = getUserById(id);
+    user.setRole(role);
+    return userRepository.save(user);
   }
 }

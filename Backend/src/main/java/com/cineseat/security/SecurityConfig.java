@@ -55,12 +55,17 @@ public class SecurityConfig {
         .authorizeHttpRequests(
             request ->
                 request
-                    .requestMatchers("/api/v1/admin/**")
+                    .requestMatchers("/api/v1/admin/users/**")
                     .hasRole("ADMIN")
+                    .requestMatchers("/api/v1/admin/**")
+                    .hasAnyRole("ADMIN", "THEATER")
                     .requestMatchers(
                         "/",
                         "/error",
                         "/api/v1/movies/**",
+                        "/api/v1/shows/**",
+                        "/api/v1/theaters/**",
+                        "/api/v1/cities/**",
                         "/api/v1/auth/**",
                         "/v3/api-docs/**",
                         "/swagger-ui/**",

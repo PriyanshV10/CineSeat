@@ -41,6 +41,32 @@ public class EmailService {
     }
   }
 
+  public void sendVerificationEmail(String email, String token) {
+    try {
+      Resend resend = new Resend(apiKey);
+      String verifyUrl = frontendUrl + "/verify-email?token=" + token;
+
+      CreateEmailOptions params =
+          CreateEmailOptions.builder()
+              .from("CineSeat <onboarding@resend.dev>")
+              .to(email)
+              .subject("Verify Your Email")
+              .html(
+                  """
+                    <h2>Email Verification</h2>
+                    <p>Click the link below to verify your email address:</p>
+                    <a href="%s">Verify Email</a>
+                    <p>This link expires in 24 hours.</p>
+                  """
+                      .formatted(verifyUrl))
+              .build();
+
+      resend.emails().send(params);
+    } catch (ResendException e) {
+      e.printStackTrace();
+    }
+  }
+
   public void sendTestEmail(String toEmail) {
 
     try {

@@ -15,7 +15,7 @@ export const AuthProvider = ({ children }) => {
       setLoading(false);
     }
   }, [token]);
-  
+
   const fetchUserProfile = async () => {
     try {
       const response = await getUserProfile();

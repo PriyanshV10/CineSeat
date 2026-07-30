@@ -86,12 +86,29 @@ export const getShows = async (movieId, cityId, date) => {
 
 export const getShowById = async (id) => {
   const response = await api.get(`/shows/${id}`);
-  return response.data;
+  const show = response.data;
+  return {
+    ...show,
+    theater: show.screen?.theater || {},
+  };
 };
 
 export const getShowSeats = async (showId) => {
   const response = await api.get(`/shows/${showId}/seats`);
-  return response.data;
+  return response.data.map((ss) => {
+    const seatNumStr = ss.seat?.seatNumber || "A1";
+    // Parse "B7" -> row: "B", number: 7
+    const rowMatch = seatNumStr.match(/^[a-zA-Z]+/);
+    const numMatch = seatNumStr.match(/\d+$/);
+    
+    return {
+      id: ss.id,
+      row: rowMatch ? rowMatch[0].toUpperCase() : "X",
+      number: numMatch ? parseInt(numMatch[0], 10) : 0,
+      status: ss.status,
+      price: ss.price,
+    };
+  });
 };
 
 export const createBooking = async (bookingRequest) => {
@@ -99,9 +116,22 @@ export const createBooking = async (bookingRequest) => {
   return response.data;
 };
 
-export const getUserBookings = async () => {
-  const response = await api.get("/users/me/bookings");
+export const confirmBooking = async (bookingId) => {
+  const response = await api.post(`/bookings/${bookingId}/confirm`);
   return response.data;
+};
+
+export const getUserBookings = async () => {
+  const response = await api.get("/bookings/me");
+  return response.data.map((b) => ({
+    id: b.id,
+    movieTitle: b.show?.movie?.title,
+    moviePoster: b.show?.movie?.posterUrl,
+    screen: b.show?.screen?.name,
+    showTime: b.show?.startTime,
+    seats: b.seats?.map((s) => `${s.seat?.rowIdentifier}${s.seat?.seatNumber}`).join(", "),
+    status: b.status,
+  }));
 };
 
 export const getUserProfile = async () => {
@@ -146,6 +176,81 @@ export const getMovieReviews = async (id) => {
     { id: 1, user: "User A", rating: 5, comment: "Amazing movie!" },
     { id: 2, user: "User B", rating: 4, comment: "Great visuals." },
   ];
+};
+
+// Admin & Partner API
+export const getAdminMovies = async () => {
+  const response = await api.get('/movies?size=100'); // Assuming pagination, get a bunch
+  return response.data.content || response.data;
+};
+
+export const createMovie = async (movieData) => {
+  const response = await api.post('/admin/movies', movieData);
+  return response.data;
+};
+
+export const getAdminTheaters = async () => {
+  const response = await api.get('/theaters');
+  return response.data;
+};
+
+export const getTheaters = async (filters) => {
+  const params = new URLSearchParams(filters);
+  const response = await api.get(`/theaters?${params.toString()}`);
+  return response.data;
+};
+
+export const getTheaterShows = async () => {
+  const response = await api.get('/shows'); // Maybe need theaterId filter depending on requirements
+  return response.data.content || response.data;
+};
+
+export const deleteMovie = async (id) => {
+  await api.delete(`/admin/movies/${id}`);
+};
+
+export const deleteShow = async (id) => {
+  await api.delete(`/admin/shows/${id}`);
+};
+
+export const getAdminUsers = async () => {
+  const response = await api.get('/admin/users');
+  return response.data;
+};
+
+export const updateUserRole = async (id, role) => {
+  const response = await api.patch(`/admin/users/${id}/role`, { role });
+  return response.data;
+};
+
+export const createTheater = async (theaterData) => {
+  const response = await api.post('/admin/theaters', theaterData);
+  return response.data;
+};
+
+export const createShow = async (showData) => {
+  const response = await api.post('/admin/shows', showData);
+  return response.data;
+};
+
+export const getCities = async () => {
+  const response = await api.get('/cities');
+  return response.data;
+};
+
+export const getScreens = async (theaterId) => {
+  const response = await api.get(`/admin/theaters/${theaterId}/screens`);
+  return response.data;
+};
+
+export const createScreen = async (theaterId, screenData) => {
+  const response = await api.post(`/admin/theaters/${theaterId}/screens`, screenData);
+  return response.data;
+};
+
+export const configureSeatLayout = async (screenId, layoutData) => {
+  const response = await api.post(`/admin/screens/${screenId}/seat-layout`, layoutData);
+  return response.data;
 };
 
 export default api;

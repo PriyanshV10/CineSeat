@@ -1,5 +1,7 @@
 package com.cineseat.movie;
 
+import com.cineseat.actor.Actor;
+import com.cineseat.genre.Genre;
 import jakarta.persistence.*;
 import lombok.*;
 

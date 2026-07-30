@@ -5,10 +5,10 @@ const MovieCard = ({ movie }) => {
   return (
     <Link
       to={`/movies/${movie.id}`}
-      className="group block mb-4 bg-white dark:bg-white/5 dark:glass-card border border-gray-200 dark:border-transparent rounded-xl p-4 transition-all hover:shadow-lg dark:hover:border-primary/20 shadow-sm"
+      className="group block mb-4 glass-card bg-white/50 dark:bg-black/40 border border-gray-200 dark:border-white/5 rounded-2xl p-3 transition-all duration-300"
     >
       {/* Poster Image */}
-      <div className="aspect-[2/3] w-full overflow-hidden rounded-lg bg-muted mb-4 relative">
+      <div className="aspect-[2/3] w-full overflow-hidden rounded-xl bg-gray-200 dark:bg-zinc-800 mb-4 relative shadow-inner">
         <img
           src={movie.posterUrl || "https://placehold.co/300x450?text=No+Poster"}
           alt={movie.title}
@@ -17,7 +17,7 @@ const MovieCard = ({ movie }) => {
             e.target.src = "https://placehold.co/300x450?text=No+Image";
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
       </div>
 
       {/* Content */}

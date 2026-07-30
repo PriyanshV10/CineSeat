@@ -1,4 +1,4 @@
-package com.cineseat.movie;
+package com.cineseat.actor;
 
 import jakarta.persistence.*;
 import lombok.*;

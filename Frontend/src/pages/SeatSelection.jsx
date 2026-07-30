@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
-import { getShowById, getShowSeats, createBooking } from "../services/api.js";
+import { getShowById, getShowSeats, createBooking, confirmBooking } from "../services/api.js";
 
 const SeatSelection = () => {
   const { id } = useParams();
@@ -88,27 +88,24 @@ const SeatSelection = () => {
     setBookingLoading(true);
     const bookingData = {
       showId: id,
-      seatIds: selectedSeatIds,
+      showSeatIds: selectedSeatIds,
       totalPrice: calculateTotal(),
     };
 
     try {
       const response = await createBooking(bookingData);
-      if (response.status === "CONFIRMED") {
-        navigate("/booking/success", { state: { booking: response } });
+      if (response && response.status === "PENDING") {
+        // Since payment is not yet integrated, we will automatically confirm the booking
+        await confirmBooking(response.id);
+        
+        // Navigate to success and pass the confirmed booking status
+        navigate("/booking/success", { state: { booking: { ...response, status: "CONFIRMED" } } });
+      } else {
+        alert("Booking failed. Please try again.");
       }
     } catch (err) {
-      console.warn("Booking API failed, simulating success for demo:", err);
-      // Mock Success
-      const mockBooking = {
-        id: "MOCK-" + Date.now(),
-        status: "CONFIRMED",
-        show: show,
-        seats: selectedSeatIds.map((id) => seats.find((s) => s.id === id)),
-        totalPrice: calculateTotal(),
-        bookingTime: new Date().toISOString(),
-      };
-      navigate("/booking/success", { state: { booking: mockBooking } });
+      console.error("Booking API failed:", err);
+      alert("Failed to create booking.");
     } finally {
       setBookingLoading(false);
     }
